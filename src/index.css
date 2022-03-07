@@ -65,7 +65,7 @@
     @apply w-36 px-5 py-3 rounded-3xl border-[1px] border-gray-400 focus:border-blue-600 focus:border-[1px] text-[14px] outline-none;
   }
   .cart-coupon__action {
-    @apply translate-x-4 w-36 px-5 py-3 rounded-3xl text-white uppercase bg-base-color hover:bg-base-hover ease-linear duration-300 text-[14px];
+    @apply translate-x-4 w-36 px-5 py-3 rounded-3xl text-white bg-base-color hover:bg-base-hover ease-linear duration-300 text-[14px];
   }
   .cart-update {
     @apply px-6 py-4 translate-x-[200%];
