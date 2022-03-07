@@ -4,18 +4,18 @@ import { DataContext } from "../../context/DataProvider";
 import { UisStar } from "@iconscout/react-unicons-solid";
 const ReplyComment = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
-  const [openCommentAction, setOpenCommentAction] = useState(false);
+  // const [openCommentAction, setOpenCommentAction] = useState(false);
   const [rating, setRating] = useState(0);
-  const allowComment = currentUser ? true : false;
+  // const allowComment = currentUser ? true : false;
   const commentRef = useRef();
   const state = useContext(DataContext);
   const socket = state.socket;
 
   const handleCommentFieldFocus = (e) => {
-    setOpenCommentAction(true);
+    // setOpenCommentAction(true);
   };
   const handleCloseCommentField = () => {
-    setOpenCommentAction(false);
+    // setOpenCommentAction(false);
   };
   const handleSubmitComment = (e) => {
     e.preventDefault();

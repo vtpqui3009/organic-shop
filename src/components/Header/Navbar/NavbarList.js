@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { SearchIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 const NavbarList = () => {
   const [inputValue, setInputValue] = useState("");
   const [focus, setFocus] = useState(false);
