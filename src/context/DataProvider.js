@@ -5,7 +5,7 @@ export const DataContext = createContext();
 export const DataProvider = ({ children }) => {
   const [socket, setSocket] = useState(null);
   useEffect(() => {
-    const socket = io("http://localhost:4000");
+    const socket = io("https://new-organic-shop.herokuapp.com");
     // const socket = io("https://localhost:4000", {
     //   withCredentials: true,
     // });
