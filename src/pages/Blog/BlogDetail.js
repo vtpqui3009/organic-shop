@@ -4,20 +4,24 @@ import Footer from "../../components/Footer/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { UilComment } from "@iconscout/react-unicons";
-
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 const BlogDetail = () => {
   const params = useParams();
   const [loadedBlog, setLoadedBlog] = useState({});
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchDetailProduct = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           `${process.env.REACT_APP_BASE_API}/blog/${params.bid}`
         );
         const responseData = await response.data.blog;
-        console.log(responseData);
         setLoadedBlog(responseData);
-      } catch (err) {}
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+      }
     };
     fetchDetailProduct();
   }, [params.bid]);
@@ -26,17 +30,16 @@ const BlogDetail = () => {
       axios.defaults.withCredentials = true;
 
       try {
-        const response = await axios.get(
+        await axios.get(
           `${process.env.REACT_APP_BASE_API}/admin/user/${loadedBlog.author}`
         );
-        const responseData = await response.data;
-        console.log(responseData);
       } catch (err) {}
     };
     loadedBlog && fetchAuthor();
   }, [loadedBlog]);
   return (
     <>
+      {loading && <LoadingSpinner />}
       <Navigation />
       <div className="blog-detail-banner">
         <p className="sub-heading-content">Blog Detail</p>

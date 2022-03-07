@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/cartSlice";
 import Comments from "./Comments";
 import Rating from "./Rating";
-
+import LoadingSpinner from "../../components/UI/LoadingSpinner";
 const ProductDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,14 +25,15 @@ const ProductDetail = () => {
   const [productPrice, setProductPrice] = useState();
   const [imagePreviewScreen, setImagePreviewScreen] = useState(false);
   const [imageIndex, setImageIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchDetailProduct = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           `${process.env.REACT_APP_BASE_API}/product/${params.pid}`
         );
         const responseData = await response.data.product;
-        console.log(responseData);
         setLoadedProduct(responseData);
         setLoadedProductImages(responseData.images);
         setProductPrice(
@@ -41,7 +42,10 @@ const ProductDetail = () => {
             currency: "VND",
           })
         );
-      } catch (err) {}
+        setLoading(false);
+      } catch (err) {
+        setLoading(false);
+      }
     };
     fetchDetailProduct();
   }, [params.pid]);
@@ -79,6 +83,7 @@ const ProductDetail = () => {
 
   return (
     <>
+      {loading && <LoadingSpinner />}
       <Navigation />
       <h1 className="bg-base-color text-white text-center">
         Super Deal! Free shipping on Order Over 500.000{" "}
