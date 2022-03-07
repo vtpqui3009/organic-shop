@@ -118,7 +118,7 @@ const CartMobile = () => {
             {!userData ? (
               <div>
                 <button
-                  className=" uppercase rounded-full w-full py-2 text-white bg-base-color"
+                  className="md:text-base text-[14px] uppercase rounded-full w-full p-2 text-white bg-base-color"
                   onClick={handleLoginRequire}
                 >
                   Proceed To Checkout
