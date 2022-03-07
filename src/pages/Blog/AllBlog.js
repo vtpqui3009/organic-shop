@@ -38,7 +38,7 @@ const AllBlog = () => {
                 No blog updated yet. Please come back later.
               </div>
             )}
-            <div className="grid grid-cols-4 w-[80%] ml-[10%] gap-10">
+            <div className="grid grid-cols-1 sm:grid-cols-4 w-[80%] ml-[10%] gap-10">
               {allBlog &&
                 allBlog.map((blog) => (
                   <div key={blog._id}>
