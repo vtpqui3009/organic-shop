@@ -104,37 +104,41 @@ const CartMobile = () => {
             ))}
           </>
         )}
-        <div className="border-b border-gray-300">
-          <div className="px-6 py-4 flex items-center justify-between">
-            <input
-              type="text"
-              placeholder="Coupon Code"
-              className="cart-coupon"
-            />
-            <button className="cart-coupon__action">Apply Coupon</button>
-          </div>
+        {cart.cartItems.length !== 0 ? (
+          <div className="border-b border-gray-300">
+            <div className="px-6 py-4 flex items-center justify-between">
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                className="cart-coupon"
+              />
+              <button className="cart-coupon__action">Apply Coupon</button>
+            </div>
 
-          <div className="flex items-center justify-center w-full ">
-            {!userData ? (
-              <div>
-                <button
-                  className="md:text-[14px] text-[12px] uppercase rounded-full w-full px-5 py-3 text-white bg-base-color"
-                  onClick={handleLoginRequire}
-                >
-                  Proceed To Checkout
-                </button>
-                {modalVisible && (
-                  <Modal
-                    content="Please login to continue checkout."
-                    onCloseModal={handleCloseModal}
-                  />
-                )}
-              </div>
-            ) : (
-              submitButton
-            )}
+            <div className="flex items-center justify-center w-full ">
+              {!userData ? (
+                <div>
+                  <button
+                    className="md:text-[14px] text-[12px] uppercase rounded-full w-full px-5 py-3 text-white bg-base-color"
+                    onClick={handleLoginRequire}
+                  >
+                    Proceed To Checkout
+                  </button>
+                  {modalVisible && (
+                    <Modal
+                      content="Please login to continue checkout."
+                      onCloseModal={handleCloseModal}
+                    />
+                  )}
+                </div>
+              ) : (
+                submitButton
+              )}
+            </div>
           </div>
-        </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     </>
   );
