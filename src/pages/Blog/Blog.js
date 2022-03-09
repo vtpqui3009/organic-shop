@@ -31,7 +31,7 @@ const Blog = () => {
                   />
                 </Link>
                 <Link to={`/blog/${blog._id}`}>
-                  <div className=" text-[18px] mb-4 mt-4">{blog.title}</div>
+                  <div className="mb-4 mt-4">{blog.title}</div>
                 </Link>
                 <div className="flex items-center justify-between text-gray-600 mb-4">
                   <div className="flex items-center ">
