@@ -18,7 +18,7 @@ const Blog = () => {
   return (
     <div className="w-[90%] ml-[5%] mb-[18%] mt-[5%]">
       <h1 className="heading font-playfair">The Blog</h1>
-      <ul className="grid grid-cols-1 md:grid-cols-3 h-[200px] gap-[5%] blog">
+      <ul className="grid grid-cols-1 md:grid-cols-3 h-[200px] gap-[5%] blog mb-[15%] sm:mb-[8%] lg:mb-0 ">
         {loadedBlog &&
           loadedBlog.map((blog) => {
             return (
