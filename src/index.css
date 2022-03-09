@@ -100,7 +100,7 @@
   .feature > div:last-child {
     @apply sm:block hidden;
   }
-  .feature > div:nth-child(7) {
+  .feature-description > div:nth-child(7) {
     @apply sm:block hidden;
   }
   .feature-item {

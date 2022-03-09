@@ -48,14 +48,16 @@ const FeatureItem = (props) => {
                   </div>
                 </div>
               </div>
-              <p className="mt-2">{product.name}</p>
-              <p className="mt-2 font-bold">{`${(
-                product.price -
-                (product.price * product.discount) / 100
-              ).toLocaleString("it-IT", {
-                style: "currency",
-                currency: "VND",
-              })}/kg`}</p>
+              <div className="feature-description">
+                <p className="mt-2">{product.name}</p>
+                <p className="mt-2 font-bold">{`${(
+                  product.price -
+                  (product.price * product.discount) / 100
+                ).toLocaleString("it-IT", {
+                  style: "currency",
+                  currency: "VND",
+                })}/kg`}</p>
+              </div>
             </div>
           ))}
       </div>
