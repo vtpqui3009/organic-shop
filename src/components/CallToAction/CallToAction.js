@@ -1,6 +1,6 @@
 const CallToAction = () => {
   return (
-    <div className="w-full flex items-center h-60 mt-[65vh] sm:mt-4 relative before:absolute before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]">
+    <div className="w-full flex items-center h-60 mt-[75vh] sm:mt-4 relative before:absolute before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]">
       <div className="first-image w-1/2 md:w-1/4 h-full object-cover bg-cover"></div>
       <div className="second-image w-1/2 md:w-1/4 h-full object-cover bg-cover"></div>
       <div className="third-image w-1/2 md:w-1/4 h-full object-cover bg-cover"></div>
