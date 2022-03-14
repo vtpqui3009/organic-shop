@@ -53,6 +53,9 @@ const CommentList = ({ productId }) => {
     }
     setReply(true);
   };
+  const handleCloseCommentField = () => {
+    setReply(false);
+  };
   const handleCloseModal = () => {
     setModalVisible(false);
   };
@@ -114,10 +117,11 @@ const CommentList = ({ productId }) => {
                   {moment(comment.createdAt).fromNow()}
                 </span>
               </div>
-
-              {reply && <ReplyComment />}
             </div>
           ))}
+        {reply && (
+          <ReplyComment handleCloseCommentField={handleCloseCommentField} />
+        )}
       </div>
     </>
   );

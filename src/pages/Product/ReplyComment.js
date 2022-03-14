@@ -2,7 +2,7 @@ import { useState, useRef, useContext } from "react";
 import { useSelector } from "react-redux";
 import { DataContext } from "../../context/DataProvider";
 import { UisStar } from "@iconscout/react-unicons-solid";
-const ReplyComment = () => {
+const ReplyComment = ({ handleCloseCommentField }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   // const [openCommentAction, setOpenCommentAction] = useState(false);
   const [rating, setRating] = useState(0);
@@ -13,9 +13,6 @@ const ReplyComment = () => {
 
   const handleCommentFieldFocus = (e) => {
     // setOpenCommentAction(true);
-  };
-  const handleCloseCommentField = () => {
-    // setOpenCommentAction(false);
   };
   const handleSubmitComment = (e) => {
     e.preventDefault();
