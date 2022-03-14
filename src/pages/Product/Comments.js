@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { DataContext } from "../../context/DataProvider";
 import { UisStar } from "@iconscout/react-unicons-solid";
 import CommentList from "./CommentList";
-// import axios from "axios";
+
 const Comments = ({ productId }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const [openCommentAction, setOpenCommentAction] = useState(false);
@@ -27,16 +27,14 @@ const Comments = ({ productId }) => {
       setCommentEmpty("");
     }
   };
-  const handleSubmitComment = () => {
-    // e.preventDefault();
+  const handleSubmitComment = async () => {
     const userId = currentUser && currentUser.user._id;
     const userAvatar = currentUser.user.avatar.url;
     const userName = currentUser && currentUser.user.name;
     if (comment.trim().length === 0) {
       setCommentEmpty("This field is required !");
-      // alert("This field is required !");
     }
-    socket.emit("createComment", {
+    const response = await socket.emit("createComment", {
       userId,
       userName,
       userAvatar,
@@ -44,27 +42,10 @@ const Comments = ({ productId }) => {
       productId,
       ratings,
     });
-    // const updateReview = async () => {
-    //   try {
-    //     axios.defaults.withCredentials = true;
-    //     const formData = new FormData();
-    //     formData.append("productId", productId);
-    //     formData.append("ratings", ratings);
-
-    //     const response = await axios.put(
-    //       `${process.env.REACT_APP_BASE_API}/edit/review/${productId}`,
-    //       formData
-    //     );
-    //     console.log(response);
-    //   } catch (error) {
-    //     commentRef.focus();
-    //     setComment("");
-    //     console.log(error);
-    //   }
-    // };
-    // updateReview();
-    setComment("");
-    setRatings(0);
+    if (response) {
+      setComment("");
+      setRatings(0);
+    }
   };
 
   return (
