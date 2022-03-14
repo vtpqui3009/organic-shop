@@ -192,7 +192,11 @@ const AllProduct = () => {
               </div>
             )}
 
-            <Pagination dataPerPage="10" data={loadedProduct} />
+            {loadedProduct && loadedProduct.length === 0 ? (
+              <div></div>
+            ) : (
+              <Pagination dataPerPage="10" data={loadedProduct} />
+            )}
           </div>
           <div className="mt-auto">
             <Footer />
