@@ -10,6 +10,7 @@ const CommentList = ({ productId }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const [modalVisible, setModalVisible] = useState(false);
   const [comments, setComments] = useState([]);
+  const [averageRating, setAverageRating] = useState(0);
   const state = useContext(DataContext);
   const socket = state.socket;
   const [reply, setReply] = useState(false);
@@ -21,6 +22,7 @@ const CommentList = ({ productId }) => {
         );
         const responseData = await response.data.comments;
         setComments(responseData);
+        // setAverageRating(responseData.)
       } catch (err) {}
     };
     getAllReviews();
@@ -119,9 +121,9 @@ const CommentList = ({ productId }) => {
               </div>
             </div>
           ))}
-        {reply && (
+        {/* {reply && (
           <ReplyComment handleCloseCommentField={handleCloseCommentField} />
-        )}
+        )} */}
       </div>
     </>
   );

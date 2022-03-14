@@ -10,7 +10,7 @@ const Rating = ({ props }) => {
 
   const styleStar = {
     clipPath:
-      props.rating === 0 ? `inset(0 100% 0 0)` : `inset(0 ${rate}% 0 0)`,
+      props.ratings === 0 ? `inset(0 100% 0 0)` : `inset(0 ${rate}% 0 0)`,
   };
 
   return (
