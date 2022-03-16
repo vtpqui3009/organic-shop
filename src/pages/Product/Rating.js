@@ -3,7 +3,7 @@ import { UisStar } from "@iconscout/react-unicons-solid";
 let rate = 0;
 const Rating = ({ props }) => {
   if (props.numOfReviews) {
-    rate = 100 - (props.ratings / props.numReviews) * 20;
+    rate = 100 - (props.ratings / props.numOfReviews) * 20;
   } else {
     rate = 100 - props.ratings * 20;
   }
