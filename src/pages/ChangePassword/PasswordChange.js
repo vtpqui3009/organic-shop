@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Header/Navigation";
 import Footer from "../../components/Footer/Footer";
@@ -30,6 +30,9 @@ const PasswordChange = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [confirm, setConfirm] = useState(false);
+  useEffect(() => {
+    document.title = "Đổi mật khẩu thành công";
+  }, []);
   const handleCloseModal = () => {
     setConfirm(false);
     setError(null);

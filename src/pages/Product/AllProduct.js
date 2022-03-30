@@ -21,6 +21,7 @@ const AllProduct = () => {
           `${process.env.REACT_APP_BASE_API}/products${query}`
         );
         const responseData = await response.data.products;
+        document.title = "Tất cả sản phẩm";
         setLoadedProduct(responseData);
         setIsLoading(false);
       } catch (err) {

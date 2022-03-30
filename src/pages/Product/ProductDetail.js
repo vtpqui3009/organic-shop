@@ -34,6 +34,7 @@ const ProductDetail = () => {
           `${process.env.REACT_APP_BASE_API}/product/${params.pid}`
         );
         const responseData = await response.data.product;
+        document.title = `Chi tiết sản phẩm - ${responseData.name}`;
         setLoadedProduct(responseData);
         setLoadedProductImages(responseData.images);
         setProductPrice(

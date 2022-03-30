@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Form } from "formik";
 import FormikControl from "../../components/UI/FormikControl";
@@ -7,6 +7,9 @@ import axios from "axios";
 import Navigation from "../../components/Header/Navigation";
 import Footer from "../../components/Footer/Footer";
 const UserAddress = () => {
+  useEffect(() => {
+    document.title = "Địa chỉ khách hàng";
+  }, []);
   const navigate = useNavigate();
   const onSubmit = (values, onSubmitProps) => {
     console.log("Form data", values);

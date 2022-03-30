@@ -21,6 +21,7 @@ const UserProfile = () => {
           `${process.env.REACT_APP_BASE_API}/me`
         );
         const responseData = await response.data.user;
+        document.title = "Thông tin cá nhân";
         setLoadedInfo(responseData);
         setLoadedAvatar(responseData.avatar.url);
       } catch (err) {}
