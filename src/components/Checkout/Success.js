@@ -5,7 +5,7 @@ import Navigation from "../Header/Navigation";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/cartSlice";
 
-const OrderSuccess = ({ history }) => {
+const Success = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,4 +33,4 @@ const OrderSuccess = ({ history }) => {
     </>
   );
 };
-export default withRouter(OrderSuccess);
+export default withRouter(Success);
