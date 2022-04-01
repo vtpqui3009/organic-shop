@@ -23,6 +23,7 @@ const CartDesktop = () => {
         `${process.env.REACT_APP_BASE_API}/address/my`
       );
       const responseData = await response.data.address;
+      console.log(responseData);
       setLoadedAddress(responseData);
     };
     fetchUserAddress();
