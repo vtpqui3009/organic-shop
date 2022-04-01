@@ -82,7 +82,7 @@ const CheckOut = () => {
       };
     });
     const response = await axios.post(
-      `http://localhost:4000/create-checkout-session`,
+      `${process.env.REACT_APP_BASE_API}/create-checkout-session`,
       { line_items, customer_email: user.user.email }
     );
     if (response) {
