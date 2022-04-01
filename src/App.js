@@ -28,7 +28,6 @@ import Cancel from "./components/Checkout/Cancel";
 import Success from "./components/Checkout/Success";
 import { DataProvider } from "./context/DataProvider";
 import ConfirmResetToken from "./pages/ForgotPassword/ConfirmResetToken";
-import UserReviewCheckout from "./pages/User/UserReviewCheckout";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -54,7 +53,6 @@ function App() {
             <Route path="profile" element={<UserProfile />} />
             <Route path="address" element={<UserAddress />} />
             <Route path="checkout" element={<UserCheckOut />} />
-            <Route path="review-checkout" element={<UserReviewCheckout />} />
           </Route>
           <Route path="password" element={<Outlet />}>
             <Route path="send-email" element={<SendEmail />} />
