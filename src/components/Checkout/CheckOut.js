@@ -93,8 +93,6 @@ const CheckOut = () => {
     console.log(sessionId);
     const { error } = await stripe.redirectToCheckout({
       sessionId,
-      successUrl: `${window.location.origin}/success`,
-      cancelUrl: `${window.location.origin}/canceled`,
     });
     if (error) {
       console.log(error);
