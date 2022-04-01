@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import WebLogo from "../../img/weblogo.png";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import Navigation from "../Header/Navigation";
 import { useDispatch } from "react-redux";
 import { clearCart } from "../../redux/cartSlice";
 
-const OrderSuccess = () => {
+const OrderSuccess = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,13 +22,15 @@ const OrderSuccess = () => {
         <p className="my-4 sm:my-2">
           Your order is being prepared. Thank for choosing Organic Shop
         </p>
-        <Link to="/product/all">
-          <button className="px-4 py-1 border-[2px] border-black my-6">
-            Continue Shopping
-          </button>
-        </Link>
+
+        <button
+          className="px-4 py-1 border-[2px] border-black my-6"
+          onClick={history.push("/product/all")}
+        >
+          Continue Shopping
+        </button>
       </div>
     </>
   );
 };
-export default OrderSuccess;
+export default withRouter(OrderSuccess);
