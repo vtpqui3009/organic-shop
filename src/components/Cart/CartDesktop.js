@@ -19,17 +19,20 @@ const CartDesktop = () => {
   useEffect(() => {
     const fetchUserAddress = async () => {
       axios.defaults.withCredentials = true;
-      const token = userData.token;
+      // const token = userData.token;
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_API}/address/my`,
-        { headers: { Authorization: `Bearer ${token}` } }
+        `${process.env.REACT_APP_BASE_API}/address`
+        // { headers: { Authorization: `Bearer ${token}` } }
       );
       const responseData = await response.data.address;
-      console.log(responseData);
-      setLoadedAddress(responseData);
+      const myAddress = responseData.filter(
+        (data) => data._id === userData._id
+      );
+      // console.log(responseData);
+      setLoadedAddress(myAddress);
     };
     fetchUserAddress();
-  }, [userData.token]);
+  }, [userData._id]);
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeItemFromCart(cartItem));
   };
