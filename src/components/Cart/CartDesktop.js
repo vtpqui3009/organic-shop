@@ -19,10 +19,14 @@ const CartDesktop = () => {
   useEffect(() => {
     const fetchUserAddress = async () => {
       axios.defaults.withCredentials = true;
-      // const token = userData.token;
+      const token = userData.token;
       const response = await axios.get(
-        `${process.env.REACT_APP_BASE_API}/address`
-        // { headers: { Authorization: `Bearer ${token}` } }
+        `${process.env.REACT_APP_BASE_API}/address/my`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+          crossDomain: true,
+        }
       );
       const responseData = await response.data.address;
       const myAddress = responseData.filter(
