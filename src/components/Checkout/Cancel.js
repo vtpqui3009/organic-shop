@@ -1,6 +1,16 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Navigation from "../Header/Navigation";
+function withRouter(Component) {
+  function ComponentWithRouterProp(props) {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+    return <Component {...props} router={{ location, navigate, params }} />;
+  }
+
+  return ComponentWithRouterProp;
+}
 const Cancel = ({ history }) => {
   useEffect(() => {
     document.title = "Cancel Payment";
