@@ -29,14 +29,12 @@ const CartDesktop = () => {
         }
       );
       const responseData = await response.data.address;
-      const myAddress = responseData.filter(
-        (data) => data._id === userData._id
-      );
+
       // console.log(responseData);
-      setLoadedAddress(myAddress);
+      setLoadedAddress(responseData);
     };
     fetchUserAddress();
-  }, [userData._id]);
+  }, [userData.token]);
   const handleRemoveFromCart = (cartItem) => {
     dispatch(removeItemFromCart(cartItem));
   };
@@ -130,7 +128,15 @@ const CartDesktop = () => {
           <div></div>
         ) : (
           <div className="cart-proceed">
-            {!userData ? (
+            <Link to="/user/checkout">
+              <button
+                className="cart-proceed-button"
+                onClick={handleLoginRequire}
+              >
+                Proceed To checkout
+              </button>
+            </Link>
+            {/* {!userData ? (
               <React.Fragment>
                 <button
                   className="cart-proceed-button"
@@ -147,7 +153,7 @@ const CartDesktop = () => {
               </React.Fragment>
             ) : (
               submitButton
-            )}
+            )} */}
           </div>
         )}
       </div>
