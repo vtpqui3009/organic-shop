@@ -88,8 +88,9 @@ const CheckOut = () => {
     if (response) {
       handleCreateOrder();
     }
-    const responseData = await response.data.sessionID;
+    const responseData = await response.data.sessionId;
     const sessionId = responseData;
+    console.log(sessionId);
     const { error } = await stripe.redirectToCheckout({ sessionId });
     if (error) {
       console.log(error);
