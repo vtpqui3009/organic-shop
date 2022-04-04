@@ -3,18 +3,18 @@ import { useSelector } from "react-redux";
 import { DataContext } from "../../context/DataProvider";
 import { UisStar } from "@iconscout/react-unicons-solid";
 import CommentList from "./CommentList";
-
+// import axios from "axios";
 const Comments = ({ productId }) => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const [openCommentAction, setOpenCommentAction] = useState(false);
   const [ratings, setRatings] = useState(0);
   const [comment, setComment] = useState("");
   const [commentEmpty, setCommentEmpty] = useState("");
+
   const allowComment = currentUser ? true : false;
   const commentRef = useRef();
   const state = useContext(DataContext);
   const socket = state.socket;
-
   const handleCommentFieldFocus = (e) => {
     setOpenCommentAction(true);
   };
@@ -27,14 +27,15 @@ const Comments = ({ productId }) => {
       setCommentEmpty("");
     }
   };
-  const handleSubmitComment = async () => {
+
+  const handleSubmitComment = () => {
     const userId = currentUser && currentUser.user._id;
     const userAvatar = currentUser.user.avatar.url;
     const userName = currentUser && currentUser.user.name;
     if (comment.trim().length === 0) {
       setCommentEmpty("This field is required !");
     }
-    const response = await socket.emit("createComment", {
+    socket.emit("createComment", {
       userId,
       userName,
       userAvatar,
@@ -42,12 +43,9 @@ const Comments = ({ productId }) => {
       productId,
       ratings,
     });
-    if (response) {
-      setComment("");
-      setRatings(0);
-    }
+    setComment("");
+    setRatings(0);
   };
-
   return (
     <>
       <div className="w-[90%] ml-[5%] mb-[5%]">
